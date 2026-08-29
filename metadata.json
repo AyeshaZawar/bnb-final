@@ -1,0 +1,8 @@
+{
+  "name": "Bucks n Bricks",
+  "description": "Next-Gen HR & Talent Solutions platform with AI resume screening, job portal, and administration dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

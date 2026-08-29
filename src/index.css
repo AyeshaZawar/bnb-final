@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vollkorn", serif;
+  --font-display: "Vollkorn", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-blue-50: #eff8fc; /* Extra light background tint */
+  --color-blue-100: #c8e6f7; /* Light Blue Shade */
+  --color-blue-200: #a1d2ee; /* Interpolated */
+  --color-blue-300: #74b8e6; /* Medium Light Blue */
+  --color-blue-400: #4999d1; /* Interpolated */
+  --color-blue-500: #1d78bc; /* Primary Blue Shade */
+  --color-blue-600: #155e96; /* Deep Blue Shade */
+  --color-blue-700: #0d456e; /* Dark Blue Shade */
+  --color-blue-800: #082e4a; /* Deep Navy Blue Shade */
+  --color-blue-900: #041b2c; /* Extra dark navy */
+}
+
+/* Base custom styles to make sure smooth scrolling is enabled globally */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fcfbfa;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #011c30;
+}
