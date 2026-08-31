@@ -69,20 +69,8 @@ function parseCurrentRoute(): RouteState {
   return { page: 'home', adminSubRoute: 'default', isInvalidAdmin: false };
 }
 
-function getInitialJobId(): string {
-  const hash = window.location.hash.replace(/^#\/?/, '').replace(/^\/+|\/+$/g, '');
-  if (hash.startsWith('job-')) {
-    return hash.replace('job-', '') || '1';
-  }
-  const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-  if (path.startsWith('job-')) {
-    return path.replace('job-', '') || '1';
-  }
-  return '1';
-}
-
 export default function App() {
-  const [selectedJobId, setSelectedJobId] = useState<string>(() => getInitialJobId());
+  const [selectedJobId, setSelectedJobId] = useState<string>('1');
 
   const [routeState, setRouteState] = useState<RouteState>(() => parseCurrentRoute());
 
@@ -95,14 +83,9 @@ export default function App() {
         window.location.hash = '#home';
       }
       if (state.page === 'job-detail') {
-        const hash = window.location.hash.replace(/^#\/?/, '').replace(/^\/+|\/+$/g, '');
-        if (hash.startsWith('job-')) {
-          setSelectedJobId(hash.replace('job-', '') || '1');
-        } else {
-          const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-          if (path.startsWith('job-')) {
-            setSelectedJobId(path.replace('job-', '') || '1');
-          }
+        const hash = window.location.hash;
+        if (hash.startsWith('#job-')) {
+          setSelectedJobId(hash.replace('#job-', '') || '1');
         }
       }
       setRouteState(state);

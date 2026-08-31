@@ -2,12 +2,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronUp, ChevronDown, Quote, Sparkles } from 'lucide-react';
+import { ChevronUp, ChevronDown, Quote } from 'lucide-react';
 import { AnimatedHeading, AnimatedParagraph, AnimatedButton } from './animations';
 import { Testimonial } from '../types';
-
-const client1 = '/assets/client_1-1.jpg';
-const client3 = '/assets/client3-1.jpg';
 
 export function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,31 +14,35 @@ export function Testimonials() {
   const testimonials: Testimonial[] = [
     {
       id: '1',
-      quote: "I’ve had the opportunity to work with Bucks & Bricks on several important hiring assignments. They’re professional, responsive, and genuinely understand the roles and business needs. They focus on finding the right people who fit both the job and the company culture. I’d highly recommend them to any organization looking for a reliable recruitment partner.",
-      author: 'John Davis',
-      role: 'HR Manager',
-      avatar: client1,
+      quote: "Working with Buck & Bricks over the past 12 years has been an exceptional experience. As a business leader, finding the right executive talent is critical, and they have consistently delivered highest-quality candidate data and insights. Their precision and thorough approach make our hiring process seamless, efficient, and genuinely engaging. When it comes to critical leadership searches, Buck & Bricks is a trusted strategic partner I rely on without hesitation.",
+      author: 'Muhammad Zeeshan Asif',
+      role: 'General Manager HR',
+      company: 'Pakistan Beverage Limited',
+      avatar: '',
     },
     {
       id: '2',
-      quote: "Working with Bucks & Bricks over the past 12 years has been a great experience. They understand our hiring needs, provide strong candidates, and make the process smooth and efficient. Their professionalism and attention to detail really stand out. They’re a trusted partner I’m always happy to recommend.",
-      author: 'Sarah Lee',
-      role: 'Operations Director',
-      avatar: client3,
+      quote: "Working with Buck & Bricks over the past 12 years has been an exceptional experience. As a business leader, finding the right executive talent is critical, and they have consistently delivered highest-quality candidate data and insights. Their precision and thorough approach make our hiring process seamless, efficient, and genuinely engaging. When it comes to critical leadership searches, Buck & Bricks is a trusted strategic partner I rely on without hesitation.",
+      author: 'Muhammad Zeeshan Asif',
+      role: 'General Manager HR',
+      company: 'Pakistan Beverage Limited',
+      avatar: '',
     },
     {
       id: '3',
-      quote: "I’ve had the opportunity to work with Bucks & Bricks on several important hiring assignments. They’re professional, responsive, and genuinely understand the roles and business needs. They focus on finding the right people who fit both the job and the company culture. I’d highly recommend them to any organization looking for a reliable recruitment partner.",
-      author: 'John Davis',
-      role: 'HR Manager',
-      avatar: client1,
+      quote: "Working with Buck & Bricks over the past 12 years has been an exceptional experience. As a business leader, finding the right executive talent is critical, and they have consistently delivered highest-quality candidate data and insights. Their precision and thorough approach make our hiring process seamless, efficient, and genuinely engaging. When it comes to critical leadership searches, Buck & Bricks is a trusted strategic partner I rely on without hesitation.",
+      author: 'Muhammad Zeeshan Asif',
+      role: 'General Manager HR',
+      company: 'Pakistan Beverage Limited',
+      avatar: '',
     },
     {
       id: '4',
-      quote: "Working with Bucks & Bricks over the past 12 years has been a great experience. They understand our hiring needs, provide strong candidates, and make the process smooth and efficient. Their professionalism and attention to detail really stand out. They’re a trusted partner I’m always happy to recommend.",
-      author: 'Sarah Lee',
-      role: 'Operations Director',
-      avatar: client3,
+      quote: "Working with Buck & Bricks over the past 12 years has been an exceptional experience. As a business leader, finding the right executive talent is critical, and they have consistently delivered highest-quality candidate data and insights. Their precision and thorough approach make our hiring process seamless, efficient, and genuinely engaging. When it comes to critical leadership searches, Buck & Bricks is a trusted strategic partner I rely on without hesitation.",
+      author: 'Muhammad Zeeshan Asif',
+      role: 'General Manager HR',
+      company: 'Pakistan Beverage Limited',
+      avatar: '',
     },
   ];
 
@@ -146,24 +147,35 @@ export function Testimonials() {
                 style={{ willChange: 'transform, opacity' }}
                 className="bg-slate-50 border border-slate-100 rounded-3xl p-6 sm:p-8 flex gap-5 items-start text-left w-full shadow-sm"
               >
-                {/* Profile Pic */}
-                <img
-                  src={testimonials[activeIndex].avatar}
-                  alt={testimonials[activeIndex].author}
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white shadow-md shrink-0"
-                  
-                />
+                {/* Profile Pic / Blank Placeholder */}
+                {testimonials[activeIndex].avatar ? (
+                  <img
+                    src={testimonials[activeIndex].avatar}
+                    alt={testimonials[activeIndex].author}
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white shadow-md shrink-0"
+                  />
+                ) : (
+                  <div
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-200 border-2 border-white shadow-md shrink-0"
+                    aria-hidden="true"
+                  />
+                )}
 
                 {/* Testimonial Quote */}
                 <div className="flex flex-col flex-1 min-w-0">
-                  <div className="flex justify-between items-center mb-2">
+                  <div className="flex justify-between items-start mb-2 gap-2">
                     <div>
                       <h4 className="text-[#011c30] font-bold font-display text-sm sm:text-base leading-snug">
                         {testimonials[activeIndex].author}
                       </h4>
-                      <p className="text-slate-400 font-medium text-[10px] uppercase tracking-wider mt-0.5">
+                      <p className="text-slate-500 font-medium text-xs tracking-tight mt-0.5">
                         {testimonials[activeIndex].role}
                       </p>
+                      {testimonials[activeIndex].company && (
+                        <p className="text-slate-400 font-medium text-[11px] tracking-tight mt-0.5">
+                          {testimonials[activeIndex].company}
+                        </p>
+                      )}
                     </div>
                     <Quote size={24} className="text-[#89c7f5] shrink-0 fill-current" />
                   </div>

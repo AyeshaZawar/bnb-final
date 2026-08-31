@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { User, X, Briefcase, Award, CheckCircle } from "lucide-react";
+import { User, X, Briefcase, Award, CheckCircle, GraduationCap } from "lucide-react";
 import {
   AnimatedHeading,
   AnimatedParagraph,
 } from "./animations";
 import { TeamMember } from "../types";
 
-const team1 = '/assets/Team-1-1.jpeg';
+const teamMohsin = '/assets/team-mohsin.jpeg';
+const teamShoaib = '/assets/team-shoaib.jpeg';
 const team2 = '/assets/Team-2-1.jpeg';
 const team3 = '/assets/Team-3-1.jpeg';
 
 interface ExtendedTeamMember extends TeamMember {
   quote: string;
+  qualification?: string;
   company?: string;
   placeholderInitials?: string;
 }
@@ -24,37 +26,36 @@ export function Team() {
   const team: ExtendedTeamMember[] = [
     {
       id: "1",
-      name: "Saima Yasir",
-      role: "Manager Business Operations",
-      image: team1,
-      bgColor: "bg-gradient-to-b from-sky-400/90 to-sky-600/95",
-      quote: "Working at Bucks n Bricks has given me the opportunity to contribute to an organization where operational excellence and strong client relationships go hand in hand. Every day, I collaborate with an exceptional team to streamline processes, enhance service delivery, and support businesses in achieving their talent goals. It is rewarding to be part of a company that values professionalism, innovation, and long term partnerships while making a meaningful impact on both clients and candidates.",
+      name: "Mohsin",
+      role: "Director Operations",
+      qualification: "MBA in Marketing",
+      image: teamMohsin,
+      bgColor: "bg-gradient-to-b from-blue-500/90 to-blue-700/95",
+      quote: "Overseeing operations and client partnerships with a focus on delivering high-impact recruitment and executive search solutions. We bridge the gap between organizational ambitions and exceptional leadership talent across diverse industries.",
     },
     {
       id: "2",
+      name: "Shoaib Ahmed Zafar",
+      role: "Sr Manager Technical Recruitment and Accounts",
+      image: teamShoaib,
+      bgColor: "bg-gradient-to-b from-indigo-500/90 to-indigo-700/95",
+      quote: "Leading specialized technical talent acquisition and strategic account management. We help businesses build robust engineering and technology teams that accelerate innovation and organizational growth.",
+    },
+    {
+      id: "3",
       name: "Amna Jamal",
       role: "HR Officer",
       image: team2,
       bgColor: "bg-gradient-to-b from-rose-400/90 to-rose-600/95",
-      quote: "Working at Bucks n Bricks has given me the opportunity to grow professionally while contributing to a collaborative and people-focused work environment. Being part of a team that is passionate about connecting exceptional talent with the right opportunities has strengthened my expertise in recruitment, talent management, and HR operations. I value working in an organization that encourages continuous learning, teamwork, and delivering meaningful solutions that create lasting value for both clients and candidates.",
+      quote: "Passionate about connecting exceptional talent with the right opportunities. Being part of Bucks n Bricks has strengthened my expertise in recruitment, talent management, and delivering meaningful solutions for both clients and candidates.",
     },
     {
-      id: "3",
+      id: "4",
       name: "Aiman Farooqui",
       role: "HR Officer",
       image: team3,
       bgColor: "bg-gradient-to-b from-teal-400/90 to-teal-600/95",
-      quote: "Working at Bucks n Bricks has provided me with valuable exposure to the fast-paced world of recruitment and talent acquisition. Collaborating with diverse clients across multiple industries has strengthened my ability to understand unique hiring requirements and deliver quality talent within dynamic business environments. The supportive culture and commitment to professional development have enhanced my communication, stakeholder management, and recruitment skills, making every experience both rewarding and impactful.",
-    },
-    {
-      id: "4",
-      name: "Muhammad Zeeshan Asif",
-      role: "General Manager HR",
-      company: "Pakistan Beverage Limited",
-      image: "",
-      placeholderInitials: "MZA",
-      bgColor: "bg-gradient-to-b from-purple-400/90 to-purple-600/95",
-      quote: "Collaborating with Bucks & Bricks has strengthened our strategic HR capabilities and streamlined talent management. Their dedication to identifying specialized industry talent and delivering exceptional organizational alignment makes them an invaluable talent solutions partner.",
+      quote: "Collaborating with diverse clients across multiple industries has strengthened my ability to understand unique hiring requirements and deliver quality talent within dynamic business environments.",
     },
   ];
 
@@ -149,6 +150,11 @@ export function Team() {
                     <p className="text-white/90 font-sans text-xs sm:text-sm font-semibold">
                       {member.role}
                     </p>
+                    {member.qualification && (
+                      <p className="text-sky-200/90 font-sans text-[11px] sm:text-xs font-medium">
+                        {member.qualification}
+                      </p>
+                    )}
                     {member.company && (
                       <p className="text-purple-200/90 font-sans text-[11px] sm:text-xs font-medium">
                         {member.company}
@@ -207,6 +213,11 @@ export function Team() {
                       <p className="text-sm font-medium text-slate-200">
                         {selectedMember.role}
                       </p>
+                      {selectedMember.qualification && (
+                        <p className="text-xs font-medium text-sky-200 mt-0.5">
+                          {selectedMember.qualification}
+                        </p>
+                      )}
                       {selectedMember.company && (
                         <p className="text-xs font-medium text-purple-200/90 mt-0.5">
                           {selectedMember.company}
