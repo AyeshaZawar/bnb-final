@@ -69,8 +69,20 @@ function parseCurrentRoute(): RouteState {
   return { page: 'home', adminSubRoute: 'default', isInvalidAdmin: false };
 }
 
+function getInitialJobId(): string {
+  const hash = window.location.hash.replace(/^#\/?/, '').replace(/^\/+|\/+$/g, '');
+  if (hash.startsWith('job-')) {
+    return hash.replace(/^job-/, '') || '1';
+  }
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  if (path.startsWith('job-')) {
+    return path.replace(/^job-/, '') || '1';
+  }
+  return '1';
+}
+
 export default function App() {
-  const [selectedJobId, setSelectedJobId] = useState<string>('1');
+  const [selectedJobId, setSelectedJobId] = useState<string>(() => getInitialJobId());
 
   const [routeState, setRouteState] = useState<RouteState>(() => parseCurrentRoute());
 

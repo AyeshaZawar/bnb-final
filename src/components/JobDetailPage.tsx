@@ -51,12 +51,13 @@ export function JobDetailPage({ jobId = '1', onBack }: JobDetailPageProps) {
   useEffect(() => {
     let isMounted = true;
     async function fetchJob() {
+      setLoading(true);
+      setFetchError('');
       try {
-        setLoading(true);
-        setFetchError('');
         const res = await getPublicJobById(jobId);
         if (isMounted && res) {
           setJobData(res);
+          setLoading(false);
           return;
         }
       } catch (err: any) {
@@ -69,11 +70,10 @@ export function JobDetailPage({ jobId = '1', onBack }: JobDetailPageProps) {
         const found = realVacancies.find((v) => v.id === jobId || v._id === jobId) || realVacancies[0];
         if (found) {
           setJobData(found);
+          setFetchError('');
         } else {
           setFetchError('Job vacancy details unavailable.');
         }
-      }
-      if (isMounted) {
         setLoading(false);
       }
     }
