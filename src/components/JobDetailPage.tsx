@@ -57,6 +57,7 @@ export function JobDetailPage({ jobId = '1', onBack }: JobDetailPageProps) {
         const res = await getPublicJobById(jobId);
         if (isMounted && res) {
           setJobData(res);
+          setLoading(false);
           return;
         }
       } catch (err: any) {
@@ -72,8 +73,6 @@ export function JobDetailPage({ jobId = '1', onBack }: JobDetailPageProps) {
         } else {
           setFetchError('Job vacancy details unavailable.');
         }
-      }
-      if (isMounted) {
         setLoading(false);
       }
     }
