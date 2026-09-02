@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { User, X, Briefcase, Award, CheckCircle, GraduationCap } from "lucide-react";
+import { User, X, CheckCircle } from "lucide-react";
 import {
   AnimatedHeading,
   AnimatedParagraph,
@@ -9,6 +9,7 @@ import { TeamMember } from "../types";
 
 const teamMohsin = '/assets/team-mohsin.jpeg';
 const teamShoaib = '/assets/team-shoaib.jpeg';
+const teamSaima = '/assets/Team-1-1.jpeg';
 const team2 = '/assets/Team-2-1.jpeg';
 const team3 = '/assets/Team-3-1.jpeg';
 
@@ -43,6 +44,14 @@ export function Team() {
     },
     {
       id: "3",
+      name: "Saima Yasir",
+      role: "Manager Business Operations",
+      image: teamSaima,
+      bgColor: "bg-gradient-to-b from-cyan-500/90 to-cyan-700/95",
+      quote: "Optimizing business operations and streamlining recruitment workflows to drive organizational growth. Committed to delivering seamless management and high-quality outcomes for our clients and team.",
+    },
+    {
+      id: "4",
       name: "Amna Jamal",
       role: "HR Officer",
       image: team2,
@@ -50,7 +59,7 @@ export function Team() {
       quote: "Passionate about connecting exceptional talent with the right opportunities. Being part of Bucks n Bricks has strengthened my expertise in recruitment, talent management, and delivering meaningful solutions for both clients and candidates.",
     },
     {
-      id: "4",
+      id: "5",
       name: "Aiman Farooqui",
       role: "HR Officer",
       image: team3,
@@ -91,7 +100,7 @@ export function Team() {
           </AnimatedParagraph>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-3 md:gap-3 max-w-5xl mx-auto min-h-[440px] md:h-[440px]">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-3 max-w-6xl mx-auto min-h-[440px] md:h-[440px]">
           {team.map((member) => {
             const isActive = activeId === member.id;
 
