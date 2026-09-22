@@ -23,7 +23,7 @@ export function Testimonials() {
     {
       id: '2',
       quote: "Working with Buck & Bricks over the past 12 years has been an exceptional experience. As a business leader, finding the right executive talent is critical, and they have consistently delivered highest-quality candidate data and insights. Their precision and thorough approach make our hiring process seamless, efficient, and genuinely engaging. When it comes to critical leadership searches, Buck & Bricks is a trusted strategic partner I rely on without hesitation.",
-      author: 'Muhammad Zeeshan Asif',
+      author: 'Muhammad ali Asif',
       role: 'General Manager HR',
       company: 'Pakistan Beverage Limited',
       avatar: '',
